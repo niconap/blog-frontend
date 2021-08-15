@@ -7,6 +7,9 @@ function ArticleDetail() {
   const [author, setAuthor] = useState('');
   const [timestamp, setTimestamp] = useState('');
   const [content, setContent] = useState('');
+  const [name, setName] = useState('');
+  const [commentContent, setCommentContent] = useState('');
+  const [comments, setComments] = useState([]);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const { id } = useParams();
@@ -38,7 +41,41 @@ function ArticleDetail() {
         console.log(error);
         setIsLoaded(true);
       });
+    fetch(`http://188.166.48.194/blog/posts/${id}/comments`, {
+      mode: 'cors',
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        setComments(result);
+      })
+      .catch((error) => {
+        setError(error);
+        console.log(error);
+      });
   }, [id]);
+
+  function handleNameChange(e) {
+    setName(e.target.value);
+  }
+
+  function handleCommentContentChange(e) {
+    setCommentContent(e.target.value);
+  }
+
+  function submitComment(e) {
+    e.preventDefault();
+    fetch(`http://188.166.48.194/blog/posts/${id}/comments`, {
+      mode: 'cors',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        content: commentContent,
+      }),
+    });
+    window.location.reload(false);
+  }
 
   if (error) {
     return (
@@ -54,11 +91,44 @@ function ArticleDetail() {
     );
   } else {
     return (
-      <div>
-        <h1>{title}</h1>
-        <h2>{author}</h2>
-        <h4>Posted on {timestamp}</h4>
-        <p>{content}</p>
+      <div id="container">
+        <div id="content">
+          <h1>{title}</h1>
+          <h2>{author}</h2>
+          <h4>Posted on {timestamp}</h4>
+          <p>{content}</p>
+        </div>
+        <div id="commentform">
+          <form onSubmit={submitComment} action="">
+            <input
+              type="text"
+              name="name"
+              placeholder="Name..."
+              required="true"
+              value={name}
+              onChange={handleNameChange}
+            />
+            <input
+              type="text"
+              name="content"
+              placeholder="Comment..."
+              required="true"
+              value={commentContent}
+              onChange={handleCommentContentChange}
+            />
+            <button>Post</button>
+          </form>
+        </div>
+        <div id="comments">
+          {comments.map((comment) => {
+            return (
+              <div key={comment._id} className="comment">
+                <h4>{comment.name}</h4>
+                <p>{comment.content}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
