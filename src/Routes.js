@@ -6,7 +6,13 @@ import ArticleDetail from './ArticleDetail';
 const Routes = () => {
   return (
     <Router>
-      <Link to="/">Home</Link>
+      <nav>
+        <h1>
+          <Link className="pagetitle" to="/">
+            Nico's blog
+          </Link>
+        </h1>
+      </nav>
       <Switch>
         <Route path="/" exact>
           <Home />

@@ -1,13 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700&display=swap');
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin: auto;
+  font-family: Jost, Arial, sans-serif;
+  outline: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.pagetitle {
+  color: black;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+#info {
+  overflow: hidden;
+  height: 15em;
+}
+
+#circle {
+  background-color: rgb(88, 88, 255);
+  border-radius: 50%;
+  height: 15em;
+  width: 15em;
+  z-index: -1;
+  position: relative;
+  top: -12em;
+  left: -4em;
+}
+
+#square {
+  background-color: rgb(255, 88, 88);
+  border-radius: 20%;
+  height: 15em;
+  width: 15em;
+  z-index: -1;
+  position: relative;
+  top: -15em;
+  left: -5em;
+  transform: rotate(30deg);
+}
+
+#articles li p {
+  margin-bottom: 1.5em;
+}
+
+.readmore,
+form button {
+  text-decoration: none;
+  background-color: rgb(88, 88, 255);
+  border: none;
+  border-radius: 10px;
+  padding: 0.5em 3em;
+  color: white;
+  transition: box-shadow 0.2s ease;
+}
+
+.readmore:hover,
+form button:hover {
+  box-shadow: 0px 0px 10px gray;
+  cursor: pointer;
+  background-color: rgb(70, 70, 226);
+}
+
+#articles {
+  padding: 2em;
+}
+
+#articles li {
+  text-align: center;
+  display: inline-block;
+  background-color: rgb(243, 243, 243);
+  padding: 1.5em;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 10em;
+}
+
+.square {
+  background-color: rgb(255, 235, 57);
+  border-radius: 20%;
+  height: 5em;
+  width: 5em;
+  position: relative;
+  top: -11em;
+  left: -2em;
+  transform: rotate(30deg);
+}
+
+.circle {
+  background-color: rgb(103, 255, 57);
+  border-radius: 50%;
+  height: 5em;
+  width: 5em;
+  position: relative;
+  top: -11em;
+  left: -2em;
+}
+
+#titlecircle {
+  background-color: rgb(255, 88, 88);
+  border-radius: 50%;
+  height: 6em;
+  width: 6em;
+  position: relative;
+  top: -4em;
+  left: -2em;
+  z-index: -1;
+  margin-bottom: -7em;
+}
+
+#titlesquare {
+  background-color: rgb(88, 88, 255);
+  border-radius: 20%;
+  height: 6em;
+  width: 6em;
+  position: relative;
+  top: -4em;
+  left: -2em;
+  transform: rotate(30deg);
+  z-index: -1;
+  margin-bottom: -7em;
+}
+
+#container {
+  margin: auto;
+  width: 40em;
+}
+
+#articletext {
+  text-align: left;
+}
+
+.comment {
+  text-align: center;
+  background-color: rgb(243, 243, 243);
+  padding: 1em;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1em;
+}
+
+form button,
+form input {
+  display: block;
+  margin: auto;
+  margin-top: 1em;
+}
+
+form input {
+  border-bottom: 2px solid black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
 }

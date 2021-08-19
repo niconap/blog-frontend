@@ -26,6 +26,7 @@ function Articles() {
     return (
       <div>
         <h1>An error occured!</h1>
+        <p>Try reloading the page.</p>
       </div>
     );
   } else if (!isLoaded) {
@@ -38,17 +39,36 @@ function Articles() {
     return (
       <div id="articles">
         {articles.map((article) => {
-          return (
-            <li key={article._id}>
-              <Link to={'/article/' + article._id}>
+          let num = Math.floor(Math.random() * 2) + 1;
+          if (num === 1) {
+            return (
+              <li key={article._id}>
                 <h3>{article.title}</h3>
-              </Link>
-              <p>
-                By {article.author.firstname} {article.author.lastname} (
-                {article.author.username})
-              </p>
-            </li>
-          );
+                <p>
+                  By {article.author.firstname} {article.author.lastname} (
+                  {article.author.username})
+                </p>
+                <Link className="readmore" to={'/article/' + article._id}>
+                  Read more...
+                </Link>
+                <div className="square"></div>
+              </li>
+            );
+          } else {
+            return (
+              <li key={article._id}>
+                <h3>{article.title}</h3>
+                <p>
+                  By {article.author.firstname} {article.author.lastname} (
+                  {article.author.username})
+                </p>
+                <Link className="readmore" to={'/article/' + article._id}>
+                  Read more...
+                </Link>
+                <div className="circle"></div>
+              </li>
+            );
+          }
         })}
       </div>
     );

@@ -2,6 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DateTime } from 'luxon';
 
+let shape;
+let num = Math.floor(Math.random() * 2) + 1;
+if (num === 1) {
+  shape = 'titlecircle';
+} else {
+  shape = 'titlesquare';
+}
+
 function ArticleDetail() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
@@ -81,6 +89,7 @@ function ArticleDetail() {
     return (
       <div id="error">
         <h1>An error occured!</h1>
+        <p>Try reloading the page.</p>
       </div>
     );
   } else if (!isLoaded) {
@@ -94,9 +103,10 @@ function ArticleDetail() {
       <div id="container">
         <div id="content">
           <h1>{title}</h1>
+          <div id={shape}></div>
           <h2>{author}</h2>
           <h4>Posted on {timestamp}</h4>
-          <p>{content}</p>
+          <p id="articletext">{content}</p>
         </div>
         <div id="commentform">
           <form onSubmit={submitComment} action="">

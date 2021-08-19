@@ -4,7 +4,15 @@ import Articles from './Articles';
 function Home() {
   return (
     <div>
-      <h1>Welcome to my blog!</h1>
+      <div id="info">
+        <h1>Welcome to my blog!</h1>
+        <p>
+          On this blog you can find articles about all sorts of subjects! Enjoy
+          reading! :)
+        </p>
+        <div id="circle"></div>
+        <div id="square"></div>
+      </div>
       <Articles />
     </div>
   );
