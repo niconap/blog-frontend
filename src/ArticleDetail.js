@@ -54,8 +54,10 @@ function ArticleDetail() {
       method: 'GET',
     })
       .then((response) => response.json())
-      .then((result) => {
-        setComments(result);
+      .then((results) => {
+        if (results.length > 0) {
+          setComments(results.reverse());
+        }
       })
       .catch((error) => {
         setError(error);
@@ -81,8 +83,12 @@ function ArticleDetail() {
         name: name,
         content: commentContent,
       }),
-    });
-    window.location.reload(false);
+    })
+      .catch((error) => {
+        setError(error);
+        console.log(error);
+      })
+      .then(window.location.reload(false));
   }
 
   if (error) {
@@ -135,6 +141,15 @@ function ArticleDetail() {
               <div key={comment._id} className="comment">
                 <h4>{comment.name}</h4>
                 <p>{comment.content}</p>
+                <p id="commenttimestamp">
+                  {DateTime.fromISO(comment.timestamp).toLocaleString({
+                    day: 'numeric',
+                    month: 'long',
+                    hour: 'numeric',
+                    hour12: false,
+                    minute: 'numeric',
+                  })}
+                </p>
               </div>
             );
           })}
