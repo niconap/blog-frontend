@@ -75,6 +75,7 @@ form button:hover {
   border-radius: 10px;
   overflow: hidden;
   height: 10em;
+  margin-right: 2em;
 }
 
 .square {
@@ -83,7 +84,7 @@ form button:hover {
   height: 5em;
   width: 5em;
   position: relative;
-  top: -11em;
+  top: -12.5em;
   left: -2em;
   transform: rotate(30deg);
 }
@@ -94,7 +95,7 @@ form button:hover {
   height: 5em;
   width: 5em;
   position: relative;
-  top: -11em;
+  top: -12em;
   left: -2em;
 }
 

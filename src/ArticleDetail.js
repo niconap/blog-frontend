@@ -23,7 +23,7 @@ function ArticleDetail() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch('http://188.166.48.194/blog/posts/' + id, {
+    fetch(`https://niconap.ga/blog/posts/${id}`, {
       mode: 'cors',
       method: 'GET',
     })
@@ -49,14 +49,16 @@ function ArticleDetail() {
         console.log(error);
         setIsLoaded(true);
       });
-    fetch(`http://188.166.48.194/blog/posts/${id}/comments`, {
+    fetch(`https://niconap.ga/blog/posts/${id}/comments`, {
       mode: 'cors',
       method: 'GET',
     })
       .then((response) => response.json())
       .then((results) => {
-        if (results.length > 0) {
-          setComments(results.reverse());
+        if (results.error) {
+          return;
+        } else {
+          setComments(results);
         }
       })
       .catch((error) => {
@@ -75,7 +77,7 @@ function ArticleDetail() {
 
   function submitComment(e) {
     e.preventDefault();
-    fetch(`http://188.166.48.194/blog/posts/${id}/comments`, {
+    fetch(`https://niconap.ga/blog/posts/${id}/comments`, {
       mode: 'cors',
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

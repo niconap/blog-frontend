@@ -7,7 +7,7 @@ function Articles() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    fetch('http://188.166.48.194/blog/posts', {
+    fetch('https://niconap.ga/blog/posts', {
       mode: 'cors',
       method: 'GET',
     })
@@ -48,7 +48,7 @@ function Articles() {
                   By {article.author.firstname} {article.author.lastname} (
                   {article.author.username})
                 </p>
-                <Link className="readmore" to={'/article/' + article._id}>
+                <Link className="readmore" to={'/blog/article/' + article._id}>
                   Read more...
                 </Link>
                 <div className="square"></div>
@@ -62,7 +62,7 @@ function Articles() {
                   By {article.author.firstname} {article.author.lastname} (
                   {article.author.username})
                 </p>
-                <Link className="readmore" to={'/article/' + article._id}>
+                <Link className="readmore" to={'/blog/article/' + article._id}>
                   Read more...
                 </Link>
                 <div className="circle"></div>
