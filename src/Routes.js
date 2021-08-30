@@ -8,16 +8,16 @@ const Routes = () => {
     <Router>
       <nav>
         <h1>
-          <Link className="pagetitle" to="/blog">
+          <Link className="pagetitle" to="/blog-frontend">
             Nico's blog
           </Link>
         </h1>
       </nav>
       <Switch>
-        <Route path="/blog" exact>
+        <Route path="/blog-frontend" exact>
           <Home />
         </Route>
-        <Route path="/blog/article/:id">
+        <Route path="/blog-frontend/article/:id">
           <ArticleDetail />
         </Route>
       </Switch>

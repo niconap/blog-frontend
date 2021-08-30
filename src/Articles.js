@@ -48,7 +48,10 @@ function Articles() {
                   By {article.author.firstname} {article.author.lastname} (
                   {article.author.username})
                 </p>
-                <Link className="readmore" to={'/blog/article/' + article._id}>
+                <Link
+                  className="readmore"
+                  to={'/blog-frontend/article/' + article._id}
+                >
                   Read more...
                 </Link>
                 <div className="square"></div>
@@ -62,7 +65,10 @@ function Articles() {
                   By {article.author.firstname} {article.author.lastname} (
                   {article.author.username})
                 </p>
-                <Link className="readmore" to={'/blog/article/' + article._id}>
+                <Link
+                  className="readmore"
+                  to={'/blog-frontend/article/' + article._id}
+                >
                   Read more...
                 </Link>
                 <div className="circle"></div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DateTime } from 'luxon';
+import uniqid from 'uniqid';
 
 let shape;
 let num = Math.floor(Math.random() * 2) + 1;
@@ -86,11 +87,25 @@ function ArticleDetail() {
         content: commentContent,
       }),
     })
+      .then((response) => response.json())
+      .then((results) => {
+        setComments([
+          ...comments,
+          {
+            _id: uniqid(),
+            name: name,
+            content: commentContent,
+          },
+        ]);
+      })
+      .then(() => {
+        setCommentContent('');
+        setName('');
+      })
       .catch((error) => {
         setError(error);
         console.log(error);
-      })
-      .then(window.location.reload(false));
+      });
   }
 
   if (error) {
