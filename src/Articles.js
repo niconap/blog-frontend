@@ -7,7 +7,7 @@ function Articles() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:3000/blog/posts', {
+    fetch('/blog/posts', {
       mode: 'cors',
       method: 'GET',
     })

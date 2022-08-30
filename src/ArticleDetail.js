@@ -50,7 +50,7 @@ function ArticleDetail() {
         console.log(error);
         setIsLoaded(true);
       });
-    fetch(`http://localhost:3000/blog/posts/${id}/comments`, {
+    fetch(`/blog/posts/${id}/comments`, {
       mode: 'cors',
       method: 'GET',
     })
@@ -78,7 +78,7 @@ function ArticleDetail() {
 
   function submitComment(e) {
     e.preventDefault();
-    fetch(`http://localhost:3000/blog/posts/${id}/comments`, {
+    fetch(`/blog/posts/${id}/comments`, {
       mode: 'cors',
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
