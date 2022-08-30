@@ -137,7 +137,7 @@ function ArticleDetail() {
               type="text"
               name="name"
               placeholder="Name..."
-              required="true"
+              required={true}
               value={name}
               onChange={handleNameChange}
             />
@@ -145,7 +145,7 @@ function ArticleDetail() {
               type="text"
               name="content"
               placeholder="Comment..."
-              required="true"
+              required={true}
               value={commentContent}
               onChange={handleCommentContentChange}
             />
