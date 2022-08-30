@@ -24,7 +24,7 @@ function ArticleDetail() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`https://niconap.ga/blog/posts/${id}`, {
+    fetch(`http://localhost:3000/blog/posts/${id}`, {
       mode: 'cors',
       method: 'GET',
     })
@@ -50,7 +50,7 @@ function ArticleDetail() {
         console.log(error);
         setIsLoaded(true);
       });
-    fetch(`https://niconap.ga/blog/posts/${id}/comments`, {
+    fetch(`http://localhost:3000/blog/posts/${id}/comments`, {
       mode: 'cors',
       method: 'GET',
     })
@@ -78,7 +78,7 @@ function ArticleDetail() {
 
   function submitComment(e) {
     e.preventDefault();
-    fetch(`https://niconap.ga/blog/posts/${id}/comments`, {
+    fetch(`http://localhost:3000/blog/posts/${id}/comments`, {
       mode: 'cors',
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

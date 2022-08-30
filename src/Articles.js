@@ -7,7 +7,7 @@ function Articles() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    fetch('https://niconap.ga/blog/posts', {
+    fetch('http://localhost:3000/blog/posts', {
       mode: 'cors',
       method: 'GET',
     })
