@@ -24,7 +24,7 @@ function ArticleDetail() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/blog/posts/${id}`, {
+    fetch(`/blog/posts/${id}`, {
       mode: 'cors',
       method: 'GET',
     })
